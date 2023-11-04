@@ -12,8 +12,8 @@ class SamplesFactoryImpl(
     private val audioSessionId: AudioSessionId,
     private val soundsDataStore: SoundsDataStore,
 ) : SamplesFactory {
-    override fun getSample(soundId: Int, name: String): Sample {
-        return Sample(name, soundId, getLoopPlayer(soundId))
+    override fun getSample(soundId: Int, name: String, sampleId: Int): Sample {
+        return Sample(name, soundId, getLoopPlayer(soundId), sampleId)
     }
 
     private fun getLoopPlayer(soundId: Int): SamplePlayer {

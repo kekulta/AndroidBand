@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         lifecycleScope.launch {
             viewModel.observePermissionRequests().collect(::handlePermissionRequest)
         }
@@ -82,7 +81,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val LOG_TAG = "MainActivity"
-        const val RECORD_AUDIO_PERMISSION_REQUEST_CODE = 42
         const val MEDIA_PROJECTION_REQUEST_CODE = 13
     }
 }

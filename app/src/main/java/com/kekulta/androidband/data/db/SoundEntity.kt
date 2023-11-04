@@ -12,12 +12,12 @@ data class SoundEntity(
     @PrimaryKey
     @ColumnInfo(name = FILE_NAME)
     val fileName: String,
-    @ColumnInfo(name = ID)
+    @ColumnInfo(name = SOUND_ID)
     val soundId: Int,
 ) {
     companion object {
-        const val TABLE_NAME = "USER_TABLE"
-        const val ID = "ID_COLUMN"
+        const val TABLE_NAME = "SOUND_TABLE"
+        const val SOUND_ID = "SOUND_ID_COLUMN"
         const val FILE_NAME = "FILE_PATH_COLUMN"
     }
 }

@@ -3,6 +3,7 @@ package com.kekulta.androidband.domain.viewmodels
 import android.Manifest
 import androidx.lifecycle.viewModelScope
 import com.kekulta.androidband.R
+import com.kekulta.androidband.data.PersistenceManager
 import com.kekulta.androidband.data.SoundsDataStore
 import com.kekulta.androidband.domain.audio.capture.CaptureRepository
 import com.kekulta.androidband.domain.audio.samples.SampleManager
@@ -49,6 +50,7 @@ class MainFragmentViewModel(
     private val permissionManager: PermissionManager,
     private val micRecordingRepository: MicRecordingRepository,
     private val resourceManager: ResourceManager,
+    private val persistenceManager: PersistenceManager,
 ) : CoroutineViewModel() {
     val state: StateFlow<List<SampleVo>> get() = sampleManager.observePlayersState()
     val wavesState: StateFlow<List<WaveUnitVo>> get() = visualizerRepository.wavesState
@@ -89,11 +91,21 @@ class MainFragmentViewModel(
         }
     }
 
+    fun restoreSamples() {
+        if (isJustLaunched) {
+            persistenceManager.load()
+        }
+    }
+
+    fun saveSamples() {
+        persistenceManager.save()
+    }
+
     fun stopWaves() {
         cancelScope(WAVE_SCOPE)
     }
 
-    fun onLibButtonClicked() {
+    fun onNavigateToLib() {
         soundsDataStore.updateSounds()
     }
 
@@ -247,6 +259,7 @@ class MainFragmentViewModel(
         quickSoundsManager.clear()
         player.clear()
         soundsDataStore.clear()
+        persistenceManager.clear()
     }
 
     companion object {

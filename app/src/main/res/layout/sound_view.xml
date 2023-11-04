@@ -24,6 +24,7 @@
         <FrameLayout
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_gravity="center"
             android:layout_marginEnd="8dp"
             android:background="@drawable/icon_background"
             android:backgroundTint="?colorSecondaryContainer">
@@ -40,14 +41,16 @@
 
         <TextView
             android:id="@+id/sound_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
 
             android:layout_weight="1"
             android:text="Track name" />
 
 
         <Button
+            android:layout_gravity="center"
             android:id="@+id/menu_button"
             style="?attr/materialIconButtonStyle"
             android:layout_width="wrap_content"
@@ -60,6 +63,7 @@
         android:id="@+id/add_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_margin="8dp"
         android:background="@drawable/sound_background"
         android:backgroundTint="@color/sound_background_tint"

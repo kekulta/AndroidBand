@@ -11,6 +11,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
+import kotlin.random.Random
 
 class SampleManager(
     private val soundsDataStore: SoundsDataStore,
@@ -41,6 +42,10 @@ class SampleManager(
     }
 
     fun observePlayersState(): StateFlow<List<SampleVo>> = samplesRepository.state
+
+    fun getAllSamples(): List<SampleVo> {
+        return samplesRepository.state.value
+    }
 
     fun startSample(sampleId: Int) {
         recorder.trackClick(sampleId)
@@ -100,8 +105,12 @@ class SampleManager(
         }
     }
 
-    fun addSample(soundId: Int, name: String = soundsDataStore.getById(soundId).name) {
-        val sample = mediaPlayerRepository.getSample(soundId, name)
+    fun addSample(
+        soundId: Int,
+        name: String = soundsDataStore.getById(soundId).name,
+        sampleId: Int = Random.nextInt()
+    ) {
+        val sample = mediaPlayerRepository.getSample(soundId, name, sampleId)
         samplesRepository.addSample(sample.sampleId, sample)
     }
 

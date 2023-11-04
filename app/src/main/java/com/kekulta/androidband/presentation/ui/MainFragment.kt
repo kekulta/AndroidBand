@@ -37,12 +37,20 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.restoreSamples()
         bindWaveRecycler()
         bindSamplesRecycler()
         bindButtons()
         bindControlPager()
         bindVisualizer()
         bindEventsChannel()
+    }
+
+
+    override fun onStop() {
+        super.onStop()
+        // This call is not guaranteed but this is OK if lost some data in crash, it is not so important
+        viewModel.saveSamples()
     }
 
     override fun onDestroy() {
@@ -104,18 +112,23 @@ class MainFragment : Fragment() {
         binding.sampleTwo.setOnClickListener { viewModel.onQuickSampleClicked(1) }
         binding.sampleThree.setOnClickListener { viewModel.onQuickSampleClicked(2) }
 
-        binding.libraryButton.setOnClickListener {
-            viewModel.onLibButtonClicked()
-            parentFragmentManager.commit {
-                addToBackStack(null)
-                setCustomAnimations(
-                    R.anim.slide_in_right,
-                    R.anim.slide_out_left,
-                    R.anim.slide_in_left,
-                    R.anim.slide_out_right
-                )
-                replace(R.id.root_container, LibraryFragment())
-            }
+        binding.sampleOne.setOnLongClickListener { navigateToLib(0); true }
+        binding.sampleTwo.setOnLongClickListener { navigateToLib(1); true }
+        binding.sampleThree.setOnLongClickListener { navigateToLib(2); true }
+        binding.libraryButton.setOnClickListener { navigateToLib() }
+    }
+
+    private fun navigateToLib(categoryNum: Int? = null) {
+        viewModel.onNavigateToLib()
+        parentFragmentManager.commit {
+            addToBackStack(null)
+            setCustomAnimations(
+                R.anim.slide_in_right,
+                R.anim.slide_out_left,
+                R.anim.slide_in_left,
+                R.anim.slide_out_right
+            )
+            replace(R.id.root_container, LibraryFragment.newInstance(categoryNum))
         }
     }
 

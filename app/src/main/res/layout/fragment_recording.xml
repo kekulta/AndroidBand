@@ -60,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|center"
-        android:contentDescription="@string/arrow_to_right"
+        android:contentDescription="@string/help_button"
         android:drawableEnd="@drawable/baseline_help_outline_24"
         android:drawableTint="?colorOnBackground" />
 </FrameLayout>

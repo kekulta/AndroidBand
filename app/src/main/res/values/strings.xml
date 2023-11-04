@@ -16,4 +16,5 @@
     <string name="help_button">Help button</string>
     <string name="arrow_down">Arrow to bottom</string>
     <string name="arrow_up">Arrow up</string>
+    <string name="back_button">Back button</string>
 </resources>

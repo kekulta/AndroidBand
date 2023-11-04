@@ -1,5 +1,6 @@
 package com.kekulta.androidband.di
 
+import com.kekulta.androidband.data.PersistenceManager
 import com.kekulta.androidband.data.SoundsDataStore
 import com.kekulta.androidband.data.db.AppDatabase
 import com.kekulta.androidband.domain.audio.capture.CaptureRepository
@@ -31,11 +32,13 @@ import org.koin.dsl.module
 
 val koinModule = module {
     single<AudioVisualizer> { AndroidVisualizer(get()) }
+    single { PersistenceManager(get(), get(), get()) }
     single { AppDatabase.createDatabase(get()) }
     single { SamplesRepository(get(), get()) }
     single { QuickSoundsManager(get()) }
     single { SoundsDataStore(get(), get()) }
-    single { get<AppDatabase>().soundsDao() }
+    single { get<AppDatabase>().getSoundDao() }
+    single { get<AppDatabase>().getSamplesDao() }
     single { VisualizerRepository(get()) }
     single { SequenceRecorder() }
     single { SequencePlayer(get(), get()) }
@@ -70,7 +73,8 @@ val viewModelModule = module {
             captureRepository = get(),
             permissionManager = get(),
             micRecordingRepository = get(),
-            resourceManager = get()
+            resourceManager = get(),
+            persistenceManager = get(),
         )
     }
 

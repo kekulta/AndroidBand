@@ -5,9 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [SoundEntity::class], version = 1)
+@Database(entities = [SoundEntity::class, SampleEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun soundsDao(): SoundDao
+    abstract fun getSoundDao(): SoundDao
+    abstract fun getSamplesDao(): SampleDao
 
     companion object {
         fun createDatabase(applicationContext: Context): AppDatabase {

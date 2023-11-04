@@ -18,7 +18,7 @@ class AssetManager(
         when (val sound = soundsDataStore.getById(soundId)) {
             is Sound.Asset -> {
                 with(context) {
-                    dest = File("${filesManager.assetDir}/${sound.name}.wav")
+                    dest = File("${filesManager.assetDir}/${sound.soundId}.wav")
                     val stream = resources.openRawResource(sound.resId)
                     dest.delete()
                     dest.createNewFile()

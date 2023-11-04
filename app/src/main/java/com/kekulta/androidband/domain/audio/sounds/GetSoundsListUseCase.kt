@@ -14,8 +14,7 @@ class GetSoundsListUseCase(
 ) {
     fun execute(): StateFlow<List<SoundsMenuCategory>> {
         return combineStates(
-            soundsDataStore.sounds,
-            quickSoundsManager.sounds
+            soundsDataStore.sounds, quickSoundsManager.sounds
         ) { sounds, quickSounds ->
             sounds.map { sound ->
                 val icon = when (sound.type) {
@@ -39,7 +38,9 @@ class GetSoundsListUseCase(
                 )
             }
         }.mapState { sounds ->
-            sounds.groupBy { soundVo -> soundVo.type }
+            // TODO костыль лютый
+            sounds.groupBy { soundVo -> soundVo.type }.toMutableMap()
+                .apply { putIfAbsent(SoundType.RECORD, emptyList()) }
                 .map { (type, sounds) -> SoundsMenuCategory(type, sounds) }
         }
     }

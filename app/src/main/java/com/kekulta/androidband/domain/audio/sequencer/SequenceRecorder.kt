@@ -50,13 +50,12 @@ class SequenceRecorder {
 
                         is SequenceEvent.End -> SequenceEvent.End(audioEvent.time - events[index - 1].time)
                     }
-
                 }
             },
         )
     }
 
-    fun recordExists() = events.isNotEmpty()
+    fun recordExists() = events.isNotEmpty() || initial.isNotEmpty()
 
     override fun toString(): String {
         return """
