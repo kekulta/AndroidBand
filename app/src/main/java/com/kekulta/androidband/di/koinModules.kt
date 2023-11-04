@@ -1,6 +1,7 @@
 package com.kekulta.androidband.di
 
 import com.kekulta.androidband.data.SoundsDataStore
+import com.kekulta.androidband.data.db.AppDatabase
 import com.kekulta.androidband.domain.audio.capture.CaptureRepository
 import com.kekulta.androidband.domain.audio.samples.SampleManager
 import com.kekulta.androidband.domain.audio.samples.SampleVoFormatter
@@ -30,9 +31,11 @@ import org.koin.dsl.module
 
 val koinModule = module {
     single<AudioVisualizer> { AndroidVisualizer(get()) }
+    single { AppDatabase.createDatabase(get()) }
     single { SamplesRepository(get(), get()) }
     single { QuickSoundsManager(get()) }
-    single { SoundsDataStore(get()) }
+    single { SoundsDataStore(get(), get()) }
+    single { get<AppDatabase>().soundsDao() }
     single { VisualizerRepository(get()) }
     single { SequenceRecorder() }
     single { SequencePlayer(get(), get()) }

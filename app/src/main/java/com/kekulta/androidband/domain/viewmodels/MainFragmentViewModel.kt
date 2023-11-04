@@ -12,8 +12,8 @@ import com.kekulta.androidband.domain.audio.sequencer.SequenceRecorder
 import com.kekulta.androidband.domain.audio.sequencer.SequenceRenderer
 import com.kekulta.androidband.domain.audio.sounds.QuickSoundsManager
 import com.kekulta.androidband.domain.audio.visualizer.VisualizerRepository
-import com.kekulta.androidband.domain.interfacestate.InterfaceState
 import com.kekulta.androidband.domain.interfacestate.ButtonsStateUseCase
+import com.kekulta.androidband.domain.interfacestate.InterfaceState
 import com.kekulta.androidband.getTimeStamp
 import com.kekulta.androidband.presentation.framework.MicRecordingRepository
 import com.kekulta.androidband.presentation.framework.PermissionManager
@@ -246,6 +246,7 @@ class MainFragmentViewModel(
         sampleManager.clear()
         quickSoundsManager.clear()
         player.clear()
+        soundsDataStore.clear()
     }
 
     companion object {

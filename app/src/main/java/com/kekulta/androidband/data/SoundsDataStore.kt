@@ -3,8 +3,11 @@ package com.kekulta.androidband.data
 import androidx.core.net.toFile
 import androidx.core.net.toUri
 import com.kekulta.androidband.R
+import com.kekulta.androidband.data.db.SoundDao
+import com.kekulta.androidband.data.db.SoundEntity
 import com.kekulta.androidband.domain.audio.sounds.Sound
 import com.kekulta.androidband.domain.audio.sounds.SoundType
+import com.kekulta.androidband.domain.viewmodels.AbstractCoroutineManager
 import com.kekulta.androidband.presentation.framework.FilesManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,7 +16,8 @@ import kotlin.random.Random
 
 class SoundsDataStore(
     private val filesManager: FilesManager,
-) {
+    private val soundDao: SoundDao,
+) : AbstractCoroutineManager() {
     private val _sounds = MutableStateFlow<List<Sound>>(
         listOf(
             Sound.Asset("Melody One", 0, SoundType.MELODY, R.raw.sample_melody_one),
@@ -30,12 +34,11 @@ class SoundsDataStore(
     val sounds: StateFlow<List<Sound>> get() = _sounds
 
     fun renameSound(soundId: Int, newName: String) {
-        _sounds.value =
-            _sounds.value.map { sound ->
-                if (sound.soundId != soundId) sound else sound.renameTo(
-                    newName
-                )
-            }
+        _sounds.value = _sounds.value.map { sound ->
+            if (sound.soundId != soundId) sound else sound.renameTo(
+                newName
+            )
+        }
     }
 
     fun deleteSound(soundId: Int) {
@@ -43,7 +46,12 @@ class SoundsDataStore(
             val isDeletedSound = soundId == sound.soundId
             if (isDeletedSound) {
                 if (sound is Sound.Record) {
-                    sound.uri.toFile().delete()
+                    // We do not want to finish this scope by ourselves, so start with unique key
+                    launchScope(Random.nextInt()) {
+                        val deletedFile = sound.uri.toFile()
+                        deletedFile.delete()
+                        soundDao.deleteByFileName(deletedFile.name)
+                    }
                 }
             }
             !isDeletedSound
@@ -55,7 +63,10 @@ class SoundsDataStore(
         val newFiles =
             filesManager.audiosDir.listFiles { file -> file.name !in loadedFiles }.toListOrEmpty()
 
-        addNewFiles(newFiles)
+        // We do not want to finish this scope by ourselves, so start with unique key
+        launchScope(Random.nextInt()) {
+            addNewFiles(newFiles)
+        }
     }
 
     fun getById(soundId: Int): Sound {
@@ -63,13 +74,24 @@ class SoundsDataStore(
             ?: throw IllegalArgumentException("Unknown sound!")
     }
 
-    private fun addNewFiles(newFiles: List<File>) {
+    private suspend fun addNewFiles(newFiles: List<File>) {
         _sounds.value = _sounds.value + newFiles.map { file ->
             Sound.Record(
                 file.nameWithoutExtension,
-                Random.nextInt(),
+                getId(file.name),
                 file.toUri(),
             )
+        }
+    }
+
+    private suspend fun getId(fileName: String): Int {
+        val persistedId = soundDao.getByFileName(fileName)?.soundId
+        return if (persistedId == null) {
+            val id = Random.nextInt()
+            soundDao.insert(SoundEntity(fileName, id))
+            id
+        } else {
+            persistedId
         }
     }
 
@@ -78,13 +100,16 @@ class SoundsDataStore(
             is Sound.Asset -> copy(name = newName)
             is Sound.Record -> {
                 val newFile = filesManager.renameTo(uri.toFile(), newName)
+                // We do not want to finish this scope by ourselves, so start with unique key
+                launchScope(Random.nextInt()) {
+                    soundDao.insert(SoundEntity(newFile.name, soundId))
+                }
                 copy(name = newName, uri = newFile.toUri())
             }
         }
     }
 
-    private fun getLoadedFiles() = _sounds.value
-        .filter { sound -> sound.type == SoundType.RECORD }
+    private fun getLoadedFiles() = _sounds.value.filter { sound -> sound.type == SoundType.RECORD }
         .map { sound -> "${sound.name}.wav" }.toSet()
 
     private fun <T> Array<T>?.toListOrEmpty(): List<T> {
