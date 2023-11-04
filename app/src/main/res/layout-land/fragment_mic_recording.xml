@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/mic_recording_button"
@@ -10,45 +10,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:contentDescription="@string/start_mic_recording"
         app:srcCompat="@drawable/baseline_fiber_manual_record_24" />
 
     <ImageButton
-        android:id="@+id/next_mode_button"
+        android:id="@+id/prev_mode_button"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_gravity="end|center"
+        android:layout_gravity="top|center"
         android:background="@color/transparent"
-        android:contentDescription="@string/arrow_to_right"
-        android:src="@drawable/baseline_keyboard_arrow_right_24"
+        android:contentDescription="@string/arrow_up"
+        android:src="@drawable/baseline_keyboard_arrow_up_24"
         app:tint="?colorOnBackground" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="start|center">
+        android:layout_gravity="bottom|center"
+        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/prev_mode_button"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
-            android:background="@color/transparent"
-            android:contentDescription="@string/arrow_to_left"
-            android:src="@drawable/baseline_keyboard_arrow_left_24"
-            app:tint="?colorOnBackground" />
 
         <Button
             android:id="@+id/help_button"
             style="?attr/materialIconButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start|center"
-            android:contentDescription="@string/arrow_to_right"
+            android:layout_gravity="bottom|center"
+            android:contentDescription="@string/help_button"
             android:drawableEnd="@drawable/baseline_help_outline_24"
             android:drawableTint="?colorOnBackground" />
+
+        <ImageButton
+            android:id="@+id/next_mode_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:background="@color/transparent"
+            android:contentDescription="@string/arrow_down"
+            android:src="@drawable/baseline_keyboard_arrow_down_24"
+            app:tint="?colorOnBackground" />
+
     </LinearLayout>
 
 </FrameLayout>

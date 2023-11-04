@@ -64,7 +64,7 @@ class RecordingControlFragment : Fragment() {
             }
         }
 
-        binding.leftArrowButton.setOnClickListener {
+        binding.prevModeButton.setOnClickListener {
             viewModel.goToControl(ControlType.MIC_RECORDING)
         }
 

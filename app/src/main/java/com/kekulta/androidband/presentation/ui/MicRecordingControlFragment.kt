@@ -61,11 +61,11 @@ class MicRecordingControlFragment : Fragment() {
             }
         }
 
-        binding.leftArrowButton.setOnClickListener {
+        binding.prevModeButton.setOnClickListener {
             viewModel.goToControl(ControlType.CAPTURING)
         }
 
-        binding.rightArrowButton.setOnClickListener {
+        binding.nextModeButton.setOnClickListener {
             viewModel.goToControl(ControlType.RECORDING)
         }
 

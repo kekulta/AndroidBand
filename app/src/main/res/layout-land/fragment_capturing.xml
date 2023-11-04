@@ -10,8 +10,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:contentDescription="@string/start_sound_capturing"
         app:srcCompat="@drawable/baseline_fiber_manual_record_24" />
 
@@ -20,8 +18,8 @@
         style="?attr/materialIconButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="start|center"
-        android:contentDescription="@string/arrow_to_right"
+        android:layout_gravity="top|center"
+        android:contentDescription="@string/help_button"
         android:drawableEnd="@drawable/baseline_help_outline_24"
         android:drawableTint="?colorOnBackground" />
 
@@ -29,9 +27,9 @@
         android:id="@+id/next_mode_button"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_gravity="end|center"
+        android:layout_gravity="bottom|center"
         android:background="@color/transparent"
-        android:contentDescription="@string/arrow_to_right"
-        android:src="@drawable/baseline_keyboard_arrow_right_24"
+        android:contentDescription="@string/arrow_down"
+        android:src="@drawable/baseline_keyboard_arrow_down_24"
         app:tint="?colorOnBackground" />
 </FrameLayout>

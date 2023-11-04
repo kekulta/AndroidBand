@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/recording_button"
@@ -15,8 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
+
             android:contentDescription="@string/start_recording"
             app:srcCompat="@drawable/baseline_fiber_manual_record_24" />
 
@@ -26,8 +26,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
             android:contentDescription="@string/play_previous_record"
             app:srcCompat="@drawable/baseline_play_circle_24" />
 
@@ -37,9 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
             android:contentDescription="@string/render_previous_record"
             app:srcCompat="@drawable/baseline_compress_24" />
     </LinearLayout>
@@ -48,10 +44,10 @@
         android:id="@+id/prev_mode_button"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_gravity="start|center"
+        android:layout_gravity="top|center"
         android:background="@color/transparent"
-        android:contentDescription="@string/arrow_to_left"
-        android:src="@drawable/baseline_keyboard_arrow_left_24"
+        android:contentDescription="@string/arrow_up"
+        android:src="@drawable/baseline_keyboard_arrow_up_24"
         app:tint="?colorOnBackground" />
 
     <Button
@@ -59,8 +55,8 @@
         style="?attr/materialIconButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|center"
-        android:contentDescription="@string/arrow_to_right"
+        android:layout_gravity="bottom|center"
+        android:contentDescription="@string/help_button"
         android:drawableEnd="@drawable/baseline_help_outline_24"
         android:drawableTint="?colorOnBackground" />
 </FrameLayout>

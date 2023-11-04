@@ -61,7 +61,7 @@ class CapturingControlFragment : Fragment() {
             }
         }
 
-        binding.rightArrowButton.setOnClickListener {
+        binding.nextModeButton.setOnClickListener {
             viewModel.goToControl(ControlType.MIC_RECORDING)
         }
 

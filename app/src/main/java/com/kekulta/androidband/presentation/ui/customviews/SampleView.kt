@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.widget.PopupMenu
 import com.google.android.material.slider.Slider
@@ -30,6 +31,7 @@ class SampleView @JvmOverloads constructor(
 
 
     init {
+        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         binding.toggleButton.disableCheck()
         binding.timeSlider.disableDrag()
 

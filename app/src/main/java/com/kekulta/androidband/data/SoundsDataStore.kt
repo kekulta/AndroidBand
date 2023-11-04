@@ -16,14 +16,14 @@ class SoundsDataStore(
 ) {
     private val _sounds = MutableStateFlow<List<Sound>>(
         listOf(
-            Sound.Asset("melody_one", 0, SoundType.MELODY, R.raw.sample_melody_one),
-            Sound.Asset("melody_two", 1, SoundType.MELODY, R.raw.sample_drums_two),
-            Sound.Asset("melody_three", 2, SoundType.MELODY, R.raw.sample_melody_three),
-            Sound.Asset("melody_four", 3, SoundType.MELODY, R.raw.sample_melody_four),
-            Sound.Asset("drums_one", 4, SoundType.DRUMS, R.raw.sample_drums_one),
-            Sound.Asset("drums_two", 5, SoundType.DRUMS, R.raw.sample_drums_two),
-            Sound.Asset("drums_three", 6, SoundType.DRUMS, R.raw.sample_drums_three),
-            Sound.Asset("drums_four", 7, SoundType.DRUMS, R.raw.sample_drums_four),
+            Sound.Asset("Melody One", 0, SoundType.MELODY, R.raw.sample_melody_one),
+            Sound.Asset("Melody Two", 1, SoundType.MELODY, R.raw.sample_drums_two),
+            Sound.Asset("Melody Three", 2, SoundType.MELODY, R.raw.sample_melody_three),
+            Sound.Asset("Melody Four", 3, SoundType.MELODY, R.raw.sample_melody_four),
+            Sound.Asset("Drums One", 4, SoundType.DRUMS, R.raw.sample_drums_one),
+            Sound.Asset("Drums Two", 5, SoundType.DRUMS, R.raw.sample_drums_two),
+            Sound.Asset("Drums Three", 6, SoundType.DRUMS, R.raw.sample_drums_three),
+            Sound.Asset("Drums Four", 7, SoundType.DRUMS, R.raw.sample_drums_four),
         )
     )
 

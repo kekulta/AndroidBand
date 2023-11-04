@@ -13,4 +13,7 @@
     <string name="start_recording">Start recording</string>
     <string name="play_previous_record">Play previous record</string>
     <string name="render_previous_record">Render previous record</string>
+    <string name="help_button">Help button</string>
+    <string name="arrow_down">Arrow to bottom</string>
+    <string name="arrow_up">Arrow up</string>
 </resources>
