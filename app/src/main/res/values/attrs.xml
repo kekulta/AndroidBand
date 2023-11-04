@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ThemeStyle">
+        <attr name="colorSurfaceContainer" format="color" />
+        <attr name="colorSecondary" format="color" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/select_quick_sound_option"
+        android:title="Select for quick sound" />
+    <item
+        android:id="@+id/share_option"
+        android:icon="@drawable/baseline_drums"
+        android:title="Share" />
+    <item
+        android:id="@+id/rename_option"
+        android:title="Rename" />
+    <item
+        android:id="@+id/delete_option"
+        android:title="Delete" />
+</menu>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/capturing_button"
+        style="?attr/floatingActionButtonSmallSecondaryStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/start_sound_capturing"
+        app:srcCompat="@drawable/baseline_fiber_manual_record_24" />
+
+    <Button
+        android:id="@+id/helpButton"
+        style="?attr/materialIconButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|center"
+        android:contentDescription="@string/arrow_to_right"
+        android:drawableEnd="@drawable/baseline_help_outline_24"
+        android:drawableTint="?colorOnBackground" />
+
+    <ImageButton
+        android:id="@+id/rightArrowButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="end|center"
+        android:background="@color/transparent"
+        android:contentDescription="@string/arrow_to_right"
+        android:src="@drawable/baseline_keyboard_arrow_right_24"
+        app:tint="?colorOnBackground" />
+</FrameLayout>

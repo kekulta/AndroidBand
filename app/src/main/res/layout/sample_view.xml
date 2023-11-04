@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@drawable/sample_background"
+    android:backgroundTint="?colorSurfaceContainer"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:parentTag="android.widget.LinearLayout">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/sample_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:text="Track"
+                    android:textAlignment="center"
+                    tools:ignore="HardcodedText" />
+            </FrameLayout>
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/time_slider"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:value="20.0"
+                android:valueFrom="0.0"
+                android:valueTo="100.0"
+                app:thumbRadius="0dp" />
+
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/speed_slider"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:value="1.0"
+                android:valueFrom="0.5"
+                android:valueTo="2.0" />
+
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/volume_slider"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:value="50.0"
+                android:valueFrom="0.0"
+                android:valueTo="100.0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/menu_button"
+                style="?attr/materialIconButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:drawableEnd="@drawable/baseline_more_horiz_24"
+                android:drawableTint="?colorOnSurface" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/reset_button"
+                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:icon="@drawable/baseline_fast_rewind_24" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/play_button"
+                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:icon="@drawable/baseline_play_circle_24" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sound_button"
+                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:icon="@drawable/baseline_volume_up_24" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">AndroidBand</string>
+
+    <string name="add_melody_sample">Add melody sample</string>
+    <string name="add_drums_sample">Add drums sample</string>
+    <string name="add_recorded_sample">Add recorded sample</string>
+    <string name="open_samples_library">Open samples library</string>
+    <string name="arrow_to_left">Arrow to left</string>
+    <string name="arrow_to_right">Arrow to right</string>
+    <string name="rename_to">Rename to…</string>
+    <string name="start_mic_recording">Start mic recording</string>
+    <string name="start_sound_capturing">Start sound capturing</string>
+    <string name="start_recording">Start recording</string>
+    <string name="play_previous_record">Play previous record</string>
+    <string name="render_previous_record">Render previous record</string>
+</resources>
