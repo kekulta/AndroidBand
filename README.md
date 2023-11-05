@@ -2,7 +2,7 @@
 
 AndroidBand is a simple music creation app that allows you to merge different audio tracks into one single track, providing a seamless and intuitive experience for music enthusiasts and creators.
 
-![App Overview Screenshot](https://github.com/kekulta/AndroidBand/assets/33986203/6495de2f-d2cf-4872-9fa7-ffa2c4c97fd0)
+![App Overview Screenshot](https://github.com/kekulta/AndroidBand/assets/33986203/ee7d2e46-27b7-4491-abca-37d8f9350ca9)
 
 *AndroidBand with added samples*
 
