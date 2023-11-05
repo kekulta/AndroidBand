@@ -1,20 +1,99 @@
 <resources>
+    <!--Screen titles-->
     <string name="app_name">AndroidBand</string>
+    <string name="sounds_library_name">Sounds Library</string>
 
-    <string name="add_melody_sample">Add melody sample</string>
-    <string name="add_drums_sample">Add drums sample</string>
-    <string name="add_recorded_sample">Add recorded sample</string>
-    <string name="open_samples_library">Open samples library</string>
-    <string name="arrow_to_left">Arrow to left</string>
-    <string name="arrow_to_right">Arrow to right</string>
-    <string name="rename_to">Rename to…</string>
-    <string name="start_mic_recording">Start mic recording</string>
-    <string name="start_sound_capturing">Start sound capturing</string>
-    <string name="start_recording">Start recording</string>
-    <string name="play_previous_record">Play previous record</string>
-    <string name="render_previous_record">Render previous record</string>
+    <!--Content descriptions-->
+    <string name="add_melody_sample_button">Add melody sample</string>
+    <string name="add_drums_sample_button">Add drums sample</string>
+    <string name="add_recorded_sample_button">Add recorded sample</string>
+    <string name="open_samples_library_button">Open samples library</string>
+    <string name="prev_mode_button">Prev mode button</string>
+    <string name="next_mode_button">Next mode button</string>
+    <string name="return_to_samples_button">Return to samples</string>
+    <string name="start_mic_recording_button">Start mic recording</string>
+    <string name="start_sound_capturing_button">Start sound capturing</string>
+    <string name="start_sequence_recording_button">Start sequence recording</string>
+    <string name="play_previous_record_button">Play previous record</string>
+    <string name="render_previous_record_button">Render previous record</string>
     <string name="help_button">Help button</string>
-    <string name="arrow_down">Arrow to bottom</string>
-    <string name="arrow_up">Arrow up</string>
-    <string name="back_button">Back button</string>
+
+    <!--Sounds Categories-->
+    <string name="melody_category_name">Melodies</string>
+    <string name="drums_category_name">Drums</string>
+    <string name="records_category_name">Records</string>
+
+    <!--Progresses-->
+    <!--Rendering Progress-->
+    <string name="rendering_progress_title">Rendering…</string>
+    <string name="rendering_failure_snackbar">Error while rendering audio!</string>
+    <string name="rendering_success_snackbar">Your audio saved as %s</string>
+    <!--Capturing Progress-->
+    <string name="capturing_failure_snackbar">Error while capturing audio!</string>
+    <string name="capturing_success_snackbar">Your audio saved as %s</string>
+    <!--Mic Recording Progress-->
+    <string name="mic_recording_success_snackbar">Your record saved as %s</string>
+
+    <!--Inputs-->
+    <!--Default Inputs-->
+    <string name="default_input_accept">OK</string>
+    <string name="default_input_close">Cancel</string>
+    <!--Rename Input-->
+    <string name="rename_input_title">Rename to…</string>
+
+    <!--Help Page-->
+    <!--Default Help Page-->
+    <string name="default_help_page_accept">OK</string>
+    <!--Capturing Help Page-->
+    <string name="capturing_help_page_title">Capturing Mode</string>
+    <string name="capturing_help_text_1">Welcome to Capture Mode. This feature allows you to record your tracks by capturing all sounds from your phone.</string>
+    <string name="capturing_help_text_2">Your recordings will be saved to your library with the prefix \'Captured-\', where you can play, rename, share, select as a QuickSound, or delete them at your convenience.</string>
+    <string name="capturing_help_text_3">Please note that this mode requires additional screen cast permission before you can start!</string>
+    <string name="capturing_help_start_stop_buttons_desc">Start/Stop capturing button.</string>
+    <string name="capturing_help_next_button_desc">Next mode button</string>
+    <string name="capturing_help_text_end">You can press \'Next mode button\' or swipe left on the bottom panel to enter Mic recording mode.</string>
+    <!--Mic recording Help Page-->
+    <string name="mic_recording_help_page_title">Mic Recording Mode</string>
+    <string name="mic_recording_help_text_1">Welcome to Mic Recording Mode. In this mode, you can record your voice or live instruments using your phone\'s microphone.</string>
+    <string name="mic_recording_help_text_2">Your recordings will be saved to your library with the prefix \'MicRecorded-\', where you can play, rename, share, select as a QuickSound, or delete them at your convenience.</string>
+    <string name="mic_recording_help_text_3">Please note that this mode requires basic audio recording permission and will not function while screen capturing is in progress!</string>
+    <string name="mic_recording_help_start_stop_desc">Start/Stop recording button.</string>
+    <string name="mic_recording_help_prev_next_desc">Prev/Next mode buttons</string>
+    <string name="mic_recording_help_text_end_1">Press \'Next mode button\' or swipe left on the bottom panel to enter sequencer recording mode.</string>
+    <string name="mic_recording_help_text_end_2">Press \'Prev mode button\' or swipe right on the bottom panel to return to capturing mode.</string>
+    <!--Recording Help Page-->
+    <string name="recording_help_page_title">Sequencer Recording Mode</string>
+    <string name="recording_help_text_1">Welcome to Sequencer Recording Mode. In this mode, AndroidBand will track your interactions with the samples and allow you to replay or consolidate them into a single file.</string>
+    <string name="recording_help_text_2">After recording, you can press the \'Render button\' to merge your actions into one file. This file, prefixed with \'Rendered-\', will be added to your library, where you can play, rename, share, select as a QuickSound, or delete them at your convenience.</string>
+    <string name="recording_help_text_3">This mode does not require any additional permissions, but please note that changes to the sample\'s speed or volume, as well as the addition of new samples, are not permitted during recording!</string>
+    <string name="recording_help_start_stop_recording_desc">Start/Stop recording button.</string>
+    <string name="recording_help_start_stop_playing_desc">Start/Stop playing button.</string>
+    <string name="recording_help_render_desc">Render button.</string>
+    <string name="recording_help_prev_desc">Prev mode button.</string>
+    <string name="recording_help_text_end">Press \'Prev mode button\' or swipe right on the bottom panel to return to Mic recording mode.</string>
+
+    <!--Rationale-->
+    <!--Default rationale-->
+    <string name="default_rationale_accept">I understand</string>
+    <string name="default_rationale_reject">Decline</string>
+    <string name="default_rationale_close">Cancel</string>
+    <!--Capturing rationale-->
+    <string name="capturing_record_audio_permissions_denied">Permissions to capture audio denied.</string>
+    <string name="capturing_media_projection_obtained">Permissions obtained. We start capturing!</string>
+    <string name="capturing_media_projection_denied">Request to start capturing denied! We can\'t record audio without it.</string>
+    <string name="capturing_rationale_title">We Care About Your Privacy</string>
+    <string name="capturing_rationale_text">We deeply respect your privacy, and we assure you that we will never record without your explicit consent. However, in order to enable the functionality of audio track capturing, we require your permission for audio recording and screen casting.</string>
+    <!--Mic Recording rationale-->
+    <string name="mic_recording_rationale_title">We Care About Your Privacy</string>
+    <string name="mic_recording_rationale_text">We value your privacy and will never record you without your express consent. However, we do require your permission for audio recording in order to provide live recordings.</string>
+    <!--Visualizer rationale-->
+    <string name="visualizer_rationale_title">We Care About Your Privacy</string>
+    <string name="visualizer_rationale_text">We have great respect for your privacy and will never record sound without your explicit consent. However, permission to record sound is required for the sound visualiser to work properly. If you refuse, the visualiser may not work as intended, but the rest of the application will remain functional. You can grant this permission later, but note that you will need to restart the application for the visualiser to work correctly.</string>
+
+    <!--Menu's options-->
+    <string name="select_for_quick_sound_option">Select for quick sound</string>
+    <string name="share_option">Share</string>
+    <string name="rename_option">Rename</string>
+    <string name="delete_option">Delete</string>
+
 </resources>

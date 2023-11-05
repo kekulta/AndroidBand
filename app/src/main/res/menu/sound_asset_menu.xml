@@ -2,5 +2,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/select_quick_sound_option"
-        android:title="Select for quick sound" />
+        android:title="@string/select_for_quick_sound_option" />
 </menu>

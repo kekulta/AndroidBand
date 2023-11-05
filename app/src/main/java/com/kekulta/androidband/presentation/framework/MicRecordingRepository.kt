@@ -4,7 +4,9 @@ import android.content.Context
 import android.media.MediaRecorder
 import android.os.Build
 import android.util.Log
+import android.widget.Toast
 import com.arthenica.mobileffmpeg.FFmpeg
+import com.kekulta.androidband.R
 import com.kekulta.androidband.getTimeStamp
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -64,6 +66,11 @@ class MicRecordingRepository(
             FFmpeg.execute(exe)
 
             Log.d(LOG_TAG, "Mic recorded to $wavFile")
+            Toast.makeText(
+                context,
+                context.getString(R.string.mic_recording_success_snackbar).format(wavFile.name),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 

@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/select_quick_sound_option"
-        android:title="Select for quick sound" />
+        android:title="@string/select_for_quick_sound_option" />
     <item
         android:id="@+id/share_option"
         android:icon="@drawable/baseline_drums"
-        android:title="Share" />
+        android:title="@string/share_option" />
     <item
         android:id="@+id/rename_option"
-        android:title="Rename" />
+        android:title="@string/rename_option" />
     <item
         android:id="@+id/delete_option"
-        android:title="Delete" />
+        android:title="@string/delete_option" />
 </menu>

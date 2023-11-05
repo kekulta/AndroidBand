@@ -1,19 +1,19 @@
 package com.kekulta.androidband.presentation.ui
 
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.kekulta.androidband.R
 import com.kekulta.androidband.bind
 import com.kekulta.androidband.databinding.FragmentRecordingBinding
 import com.kekulta.androidband.domain.viewmodels.MainFragmentViewModel
+import com.kekulta.androidband.presentation.ui.dialogs.showHelpPage
+import com.kekulta.androidband.presentation.ui.dialogs.showProgress
 import com.kekulta.androidband.presentation.ui.events.ControlType
-import com.kekulta.androidband.showHelpPage
+import com.kekulta.androidband.snackbar
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
@@ -57,10 +57,19 @@ class RecordingControlFragment : Fragment() {
         binding.recordingButton.setOnClickListener { viewModel.onRecordingClick() }
         binding.playRecordButton.setOnClickListener { viewModel.onRecordingPlayClick() }
 
+
         binding.renderRecordButton.setOnClickListener {
-            MediaPlayer.create(requireContext(), viewModel.renderRecord().toUri()).apply {
-                setOnCompletionListener { mp -> mp.release() }
-                start()
+            requireContext().showProgress(getString(R.string.rendering_progress_title)) {
+                val result = viewModel.renderRecord()
+                if (result == null) {
+                    binding.root.snackbar(getString(R.string.rendering_failure_snackbar))
+                } else {
+                    binding.root.snackbar(
+                        getString(R.string.rendering_success_snackbar).format(
+                            result.name
+                        )
+                    )
+                }
             }
         }
 
@@ -69,7 +78,10 @@ class RecordingControlFragment : Fragment() {
         }
 
         binding.helpButton.setOnClickListener {
-            requireContext().showHelpPage("Sequence recording mode", R.layout.recording_help_page)
+            requireContext().showHelpPage(
+                getString(R.string.recording_help_page_title),
+                R.layout.recording_help_page
+            )
         }
 
     }

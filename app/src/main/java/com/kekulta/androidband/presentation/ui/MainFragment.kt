@@ -12,8 +12,8 @@ import com.kekulta.androidband.R
 import com.kekulta.androidband.bind
 import com.kekulta.androidband.databinding.FragmentMainBinding
 import com.kekulta.androidband.domain.viewmodels.MainFragmentViewModel
-import com.kekulta.androidband.formInput
-import com.kekulta.androidband.formRationale
+import com.kekulta.androidband.presentation.ui.dialogs.formRationale
+import com.kekulta.androidband.presentation.ui.dialogs.showInput
 import com.kekulta.androidband.presentation.ui.events.MainFragmentEvent
 import com.kekulta.androidband.presentation.ui.recycler.samples.SamplesRecyclerAdapter
 import com.kekulta.androidband.presentation.ui.recycler.waves.WaveFormRecyclerAdapter
@@ -73,11 +73,10 @@ class MainFragment : Fragment() {
         }
     }
 
-    //TODO text
     private fun bindVisualizer() {
         val visualizerRationale = requireContext().formRationale(
-            title = "We care about privacy",
-            message = "We do not record you without your consent but for audio Visualizer work it needs permission to record audio.",
+            title = getString(R.string.visualizer_rationale_title),
+            message = getString(R.string.visualizer_rationale_text),
         )
 
         viewModel.startWaves(visualizerRationale)
@@ -180,7 +179,7 @@ class MainFragment : Fragment() {
     }
 
     private fun getInput(inputId: Int, title: String, message: String) {
-        requireContext().formInput(title, message) { input ->
+        requireContext().showInput(title, message) { input ->
             viewModel.onInputResult(inputId, input)
         }
     }

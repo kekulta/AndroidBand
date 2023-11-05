@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.kekulta.androidband.R
 import com.kekulta.androidband.data.SoundsDataStore
 import com.kekulta.androidband.domain.audio.samples.SampleManager
-import com.kekulta.androidband.domain.audio.sounds.GetSoundsListUseCase
+import com.kekulta.androidband.domain.audio.sounds.GetSoundsCategoriesUseCase
 import com.kekulta.androidband.domain.audio.sounds.QuickSoundsManager
 import com.kekulta.androidband.domain.audio.sounds.Sound
 import com.kekulta.androidband.presentation.framework.ResourceManager
@@ -19,13 +19,13 @@ import kotlin.random.Random
 
 
 class LibraryFragmentViewModel(
-    getSoundsListUseCase: GetSoundsListUseCase,
+    getSoundsCategoriesUseCase: GetSoundsCategoriesUseCase,
     private val sampleManager: SampleManager,
     private val soundsDataStore: SoundsDataStore,
     private val quickSoundsManager: QuickSoundsManager,
     private val resourceManager: ResourceManager,
 ) : CoroutineViewModel() {
-    val state = getSoundsListUseCase.execute()
+    val state = getSoundsCategoriesUseCase.execute()
     private val inputCallbacksHolder = mutableMapOf<Int, (String?) -> Unit>()
     private val _eventChannel = Channel<LibraryFragmentEvent>()
     val eventChannel: Flow<LibraryFragmentEvent> = _eventChannel.receiveAsFlow()
@@ -75,7 +75,7 @@ class LibraryFragmentViewModel(
             _eventChannel.send(
                 LibraryFragmentEvent.Input(
                     inputId = inputId,
-                    title = resourceManager.getString(R.string.rename_to),
+                    title = resourceManager.getString(R.string.rename_input_title),
                     message = ""
                 )
             )

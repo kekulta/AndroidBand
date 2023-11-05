@@ -14,10 +14,10 @@ import com.kekulta.androidband.R
 import com.kekulta.androidband.bind
 import com.kekulta.androidband.databinding.FragmentCapturingBinding
 import com.kekulta.androidband.domain.viewmodels.MainFragmentViewModel
-import com.kekulta.androidband.formRationale
 import com.kekulta.androidband.presentation.framework.AudioCaptureService
+import com.kekulta.androidband.presentation.ui.dialogs.formRationale
+import com.kekulta.androidband.presentation.ui.dialogs.showHelpPage
 import com.kekulta.androidband.presentation.ui.events.ControlType
-import com.kekulta.androidband.showHelpPage
 import com.kekulta.androidband.snackbar
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
@@ -65,17 +65,18 @@ class CapturingControlFragment : Fragment() {
             viewModel.goToControl(ControlType.MIC_RECORDING)
         }
 
-        // TODO text
         binding.helpButton.setOnClickListener {
-            requireContext().showHelpPage("Capturing mode", R.layout.capturing_help_page)
+            requireContext().showHelpPage(
+                getString(R.string.capturing_help_page_title),
+                R.layout.capturing_help_page
+            )
         }
     }
 
     private fun startCapturing() {
-        //TODO text
         val capturingRationale = requireContext().formRationale(
-            title = "We care about privacy",
-            message = "We do not record you without your consent but for audio capturing your track we need recording permission and screencast permission.",
+            title = getString(R.string.capturing_rationale_title),
+            message = getString(R.string.capturing_rationale_text),
         )
         viewModel.withAudioPermissions(
             rationaleCallback = capturingRationale,
@@ -84,7 +85,7 @@ class CapturingControlFragment : Fragment() {
             if (granted) {
                 startMediaProjectionRequest()
             } else {
-                binding.root.snackbar("Permissions to capture audio denied.")
+                binding.root.snackbar(getString(R.string.capturing_record_audio_permissions_denied))
             }
         }
     }

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
 
-            android:contentDescription="@string/start_recording"
+            android:contentDescription="@string/start_sequence_recording_button"
             app:srcCompat="@drawable/baseline_fiber_manual_record_24" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:contentDescription="@string/play_previous_record"
+            android:contentDescription="@string/play_previous_record_button"
             app:srcCompat="@drawable/baseline_play_circle_24" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:contentDescription="@string/render_previous_record"
+            android:contentDescription="@string/render_previous_record_button"
             app:srcCompat="@drawable/baseline_compress_24" />
     </LinearLayout>
 
@@ -46,7 +46,7 @@
         android:layout_height="24dp"
         android:layout_gravity="top|center"
         android:background="@color/transparent"
-        android:contentDescription="@string/arrow_up"
+        android:contentDescription="@string/prev_mode_button"
         android:src="@drawable/baseline_keyboard_arrow_up_24"
         app:tint="?colorOnBackground" />
 

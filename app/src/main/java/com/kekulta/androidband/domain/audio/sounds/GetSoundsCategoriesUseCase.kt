@@ -8,7 +8,7 @@ import com.kekulta.androidband.presentation.ui.recycler.sounds.SoundsMenuCategor
 import com.kekulta.androidband.presentation.ui.vo.SoundVo
 import kotlinx.coroutines.flow.StateFlow
 
-class GetSoundsListUseCase(
+class GetSoundsCategoriesUseCase(
     private val soundsDataStore: SoundsDataStore,
     private val quickSoundsManager: QuickSoundsManager,
 ) {
@@ -38,7 +38,6 @@ class GetSoundsListUseCase(
                 )
             }
         }.mapState { sounds ->
-            // TODO костыль лютый
             sounds.groupBy { soundVo -> soundVo.type }.toMutableMap()
                 .apply { putIfAbsent(SoundType.RECORD, emptyList()) }
                 .map { (type, sounds) -> SoundsMenuCategory(type, sounds) }

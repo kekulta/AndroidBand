@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center"
-            android:contentDescription="@string/back_button"
+            android:contentDescription="@string/return_to_samples_button"
             android:drawableEnd="@drawable/baseline_keyboard_arrow_left_24"
             android:drawableTint="?colorOnBackground" />
 
@@ -28,7 +28,7 @@
             android:paddingTop="4dp"
             android:paddingEnd="8dp"
             android:paddingBottom="4dp"
-            android:text="Sounds library"
+            android:text="@string/sounds_library_name"
             android:textColor="?colorOnSurface"
             android:textSize="16sp" />
     </LinearLayout>
