@@ -31,6 +31,7 @@ class PersistenceManager(
                     quickSoundsManager.setQuickSound(soundIdOne)
                     quickSoundsManager.setQuickSound(soundIdTwo)
                     quickSoundsManager.setQuickSound(soundIdThree)
+                    quickSoundsManager.setQuickSound(soundIdFour)
                 }
             }
         }
@@ -56,6 +57,7 @@ class PersistenceManager(
                             soundIdOne = quickSounds[0],
                             soundIdTwo = quickSounds[1],
                             soundIdThree = quickSounds[2],
+                            soundIdFour = quickSounds[3],
                         )
                     )
                 }

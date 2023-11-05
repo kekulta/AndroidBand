@@ -12,11 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.tabs.TabLayoutMediator
 import com.kekulta.androidband.App
-import com.kekulta.androidband.R
 import com.kekulta.androidband.databinding.FragmentLibraryBinding
-import com.kekulta.androidband.domain.audio.sounds.SoundType.DRUMS
-import com.kekulta.androidband.domain.audio.sounds.SoundType.MELODY
-import com.kekulta.androidband.domain.audio.sounds.SoundType.RECORD
 import com.kekulta.androidband.domain.viewmodels.LibraryFragmentViewModel
 import com.kekulta.androidband.presentation.ui.dialogs.showInput
 import com.kekulta.androidband.presentation.ui.events.LibraryFragmentEvent
@@ -84,11 +80,7 @@ class LibraryFragment : Fragment() {
     private fun bindPager() {
         binding.libraryPager.adapter = LibraryPagerAdapter(this)
         TabLayoutMediator(binding.libraryTabLayout, binding.libraryPager) { tab, position ->
-            tab.text = when (viewModel.state.value[position].category) {
-                MELODY -> getString(R.string.melody_category_name)
-                DRUMS -> getString(R.string.drums_category_name)
-                RECORD -> getString(R.string.records_category_name)
-            }
+            tab.text = getString(viewModel.state.value[position].category.nameRes)
         }.attach()
 
         category?.let { category ->

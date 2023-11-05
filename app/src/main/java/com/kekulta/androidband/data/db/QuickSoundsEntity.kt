@@ -11,6 +11,7 @@ data class QuickSoundsEntity(
     @ColumnInfo(name = SOUND_ID_ONE) val soundIdOne: Int,
     @ColumnInfo(name = SOUND_ID_TWO) val soundIdTwo: Int,
     @ColumnInfo(name = SOUND_ID_THREE) val soundIdThree: Int,
+    @ColumnInfo(name = SOUND_ID_FOUR) val soundIdFour: Int,
 ) {
     companion object {
         const val TABLE_NAME = "QUICKSOUND_TABLE"
@@ -19,5 +20,6 @@ data class QuickSoundsEntity(
         const val SOUND_ID_ONE = "SOUND_ID_ONE"
         const val SOUND_ID_TWO = "SOUND_ID_TWO"
         const val SOUND_ID_THREE = "SOUND_ID_THREE"
+        const val SOUND_ID_FOUR = "SOUND_ID_FOUR"
     }
 }

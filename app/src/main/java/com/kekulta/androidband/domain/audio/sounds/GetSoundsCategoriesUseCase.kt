@@ -21,10 +21,11 @@ class GetSoundsCategoriesUseCase(
                     SoundType.DRUMS -> R.drawable.baseline_drums
                     SoundType.MELODY -> R.drawable.baseline_music_note_24
                     SoundType.RECORD -> R.drawable.baseline_mic_24
+                    SoundType.FX -> R.drawable.baseline_gesture_24
                 }
 
                 val menuType = when (sound.type) {
-                    SoundType.DRUMS, SoundType.MELODY -> R.menu.sound_asset_menu
+                    SoundType.DRUMS, SoundType.MELODY, SoundType.FX -> R.menu.sound_asset_menu
                     SoundType.RECORD -> R.menu.sound_record_menu
                 }
 
@@ -39,7 +40,9 @@ class GetSoundsCategoriesUseCase(
             }
         }.mapState { sounds ->
             sounds.groupBy { soundVo -> soundVo.type }.toMutableMap()
-                .apply { putIfAbsent(SoundType.RECORD, emptyList()) }
+                .apply {
+                    SoundType.entries.forEach { soundType -> putIfAbsent(soundType, emptyList()) }
+                }
                 .map { (type, sounds) -> SoundsMenuCategory(type, sounds) }
         }
     }

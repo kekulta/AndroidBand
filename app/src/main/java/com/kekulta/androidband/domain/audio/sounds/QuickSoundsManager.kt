@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 class QuickSoundsManager(
     private val soundsDataStore: SoundsDataStore,
 ) : AbstractCoroutineManager() {
-    private val _state = MutableStateFlow(listOf(0, 4, -1))
+    private val _state = MutableStateFlow(listOf(0, 6, 11, -1))
 
     val sounds: StateFlow<List<Int>> get() = _state
 
@@ -30,7 +30,8 @@ class QuickSoundsManager(
         val typeNum = when (soundsDataStore.getById(soundId).type) {
             SoundType.MELODY -> 0
             SoundType.DRUMS -> 1
-            SoundType.RECORD -> 2
+            SoundType.FX -> 2
+            SoundType.RECORD -> 3
         }
         _state.value = _state.value.update(typeNum, soundId)
 
@@ -38,7 +39,7 @@ class QuickSoundsManager(
     }
 
     fun getSoundId(num: Int): Int {
-        if (num !in 0..2) {
+        if (num !in 0..3) {
             throw IllegalArgumentException()
         } else {
             return _state.value[num]

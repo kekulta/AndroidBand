@@ -101,6 +101,7 @@ class MainFragment : Fragment() {
                         sampleOne.bind(sampleOneButtonState)
                         sampleTwo.bind(sampleTwoButtonState)
                         sampleThree.bind(sampleThreeButtonState)
+                        sampleFour.bind(sampleFourButtonState)
                         libraryButton.bind(libButtonState)
                     }
                 }
@@ -110,10 +111,12 @@ class MainFragment : Fragment() {
         binding.sampleOne.setOnClickListener { viewModel.onQuickSampleClicked(0) }
         binding.sampleTwo.setOnClickListener { viewModel.onQuickSampleClicked(1) }
         binding.sampleThree.setOnClickListener { viewModel.onQuickSampleClicked(2) }
+        binding.sampleFour.setOnClickListener { viewModel.onQuickSampleClicked(3) }
 
         binding.sampleOne.setOnLongClickListener { navigateToLib(0); true }
         binding.sampleTwo.setOnLongClickListener { navigateToLib(1); true }
         binding.sampleThree.setOnLongClickListener { navigateToLib(2); true }
+        binding.sampleFour.setOnLongClickListener { navigateToLib(3); true }
         binding.libraryButton.setOnClickListener { navigateToLib() }
     }
 

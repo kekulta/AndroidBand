@@ -173,7 +173,7 @@ class AudioCaptureService : Service() {
             Log.e(LOG_TAG, "No record found!")
             Toast.makeText(
                 applicationContext,
-                getString(R.string.capturing_failure_snackbar).format(wavFile.name),
+                getString(R.string.capturing_failure_snackbar),
                 Toast.LENGTH_SHORT
             ).show()
         } else {

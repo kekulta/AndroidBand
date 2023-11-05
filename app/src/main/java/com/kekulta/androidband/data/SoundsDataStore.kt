@@ -21,13 +21,20 @@ class SoundsDataStore(
     private val _sounds = MutableStateFlow<List<Sound>>(
         listOf(
             Sound.Asset("Melody One", 0, SoundType.MELODY, R.raw.sample_melody_one),
-            Sound.Asset("Melody Two", 1, SoundType.MELODY, R.raw.sample_drums_two),
+            Sound.Asset("Melody Two", 1, SoundType.MELODY, R.raw.sample_melody_two),
             Sound.Asset("Melody Three", 2, SoundType.MELODY, R.raw.sample_melody_three),
             Sound.Asset("Melody Four", 3, SoundType.MELODY, R.raw.sample_melody_four),
-            Sound.Asset("Drums One", 4, SoundType.DRUMS, R.raw.sample_drums_one),
-            Sound.Asset("Drums Two", 5, SoundType.DRUMS, R.raw.sample_drums_two),
-            Sound.Asset("Drums Three", 6, SoundType.DRUMS, R.raw.sample_drums_three),
-            Sound.Asset("Drums Four", 7, SoundType.DRUMS, R.raw.sample_drums_four),
+            Sound.Asset("Melody Five", 5, SoundType.MELODY, R.raw.sample_melody_five),
+            Sound.Asset("Drums One", 6, SoundType.DRUMS, R.raw.sample_drums_one),
+            Sound.Asset("Drums Two", 7, SoundType.DRUMS, R.raw.sample_drums_two),
+            Sound.Asset("Drums Three", 8, SoundType.DRUMS, R.raw.sample_drums_three),
+            Sound.Asset("Drums Four", 9, SoundType.DRUMS, R.raw.sample_drums_four),
+            Sound.Asset("Drums Five", 10, SoundType.DRUMS, R.raw.sample_drums_five),
+            Sound.Asset("Ambience D", 11, SoundType.FX, R.raw.sample_fx_ambience_d),
+            Sound.Asset("Drone Reese", 12, SoundType.FX, R.raw.sample_fx_drone_reese),
+            Sound.Asset("Impact Delay", 13, SoundType.FX, R.raw.sample_fx_impact_delay),
+            Sound.Asset("Laugh Laser", 14, SoundType.FX, R.raw.sample_fx_laugh_laser),
+            Sound.Asset("Short Sweep", 15, SoundType.FX, R.raw.sample_fx_short_sweep),
         )
     )
 

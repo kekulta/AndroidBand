@@ -45,6 +45,13 @@ class ButtonsStateUseCase(
                 )
             )
 
+            val sampleFourButton = ButtonState(
+                isActive = null,
+                isEnabled = all(
+                    !isRecording, !isPlaying, quickSounds[3] != -1
+                )
+            )
+
             val libButton = ButtonState(
                 isActive = null,
                 isEnabled = all(
@@ -90,6 +97,7 @@ class ButtonsStateUseCase(
                 sampleOneButtonState = sampleOneButton,
                 sampleTwoButtonState = sampleTwoButton,
                 sampleThreeButtonState = sampleThreeButton,
+                sampleFourButtonState = sampleFourButton,
                 libButtonState = libButton,
                 micRecordingButtonState = micRecordingButton,
                 captureButtonState = captureButton,

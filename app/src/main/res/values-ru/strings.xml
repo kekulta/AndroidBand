@@ -26,11 +26,11 @@
     <!--Progresses-->
     <!--Rendering Progress-->
     <string name="rendering_progress_title">Рендеринг…</string>
-    <string name="rendering_success_snackbar">Ошибка во время рендера аудио!</string>
-    <string name="rendering_failure_snackbar">Ваша запись сохранена как %s</string>
+    <string name="rendering_success_snackbar">Ваша запись сохранена как %s</string>
+    <string name="rendering_failure_snackbar">Ошибка во время рендера аудио!</string>
     <!--Capturing Progress-->
-    <string name="capturing_success_snackbar">Ошибка во время захвата аудио!!</string>
-    <string name="capturing_failure_snackbar">Ваше аудио сохранено как %s</string>
+    <string name="capturing_success_snackbar">Ваше аудио сохранено как %s</string>
+    <string name="capturing_failure_snackbar">Ошибка во время захвата аудио!</string>
     <!--Mic Recording Progress-->
     <string name="mic_recording_success_snackbar">Ваша запись сохранена %s</string>
 

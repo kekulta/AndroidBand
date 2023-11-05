@@ -22,6 +22,7 @@
     <string name="melody_category_name">Melodies</string>
     <string name="drums_category_name">Drums</string>
     <string name="records_category_name">Records</string>
+    <string name="fx_category_name" translatable="false">FX</string>
 
     <!--Progresses-->
     <!--Rendering Progress-->

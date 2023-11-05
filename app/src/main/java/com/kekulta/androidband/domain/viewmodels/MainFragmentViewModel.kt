@@ -162,7 +162,8 @@ class MainFragmentViewModel(
 
     fun startMicRecording(rationaleCallback: RationaleCallback) {
         withAudioPermissions(
-            rationaleCallback
+            rationaleCallback,
+            forceRationale = true,
         ) { granted ->
             if (granted) {
                 micRecordingRepository.startMicRecording()
