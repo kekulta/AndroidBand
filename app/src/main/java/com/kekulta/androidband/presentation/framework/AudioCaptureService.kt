@@ -1,11 +1,14 @@
 package com.kekulta.androidband.presentation.framework
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.media.AudioAttributes
 import android.media.AudioFormat
 import android.media.AudioPlaybackCaptureConfiguration
@@ -14,8 +17,11 @@ import android.media.projection.MediaProjection
 import android.media.projection.MediaProjectionManager
 import android.os.IBinder
 import android.util.Log
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import com.arthenica.mobileffmpeg.FFmpeg
+import com.kekulta.androidband.R
 import com.kekulta.androidband.getTimeStamp
 import org.koin.android.ext.android.inject
 import java.io.File
@@ -85,9 +91,11 @@ class AudioCaptureService : Service() {
         }
     }
 
+    // Permissions checked but lint can't figure it out
+    @SuppressLint("MissingPermission")
     private fun startAudioCapture() {
         val config = AudioPlaybackCaptureConfiguration.Builder(mediaProjection!!)
-            .addMatchingUsage(AudioAttributes.USAGE_MEDIA) // TODO provide UI options for inclusion/exclusion
+            .addMatchingUsage(AudioAttributes.USAGE_MEDIA)
             .build()
 
         /**
@@ -100,13 +108,9 @@ class AudioCaptureService : Service() {
             .setChannelMask(AudioFormat.CHANNEL_IN_MONO)
             .build()
 
+        if (!checkPermissions()) return
         audioRecord = AudioRecord.Builder()
             .setAudioFormat(audioFormat)
-            // For optimal performance, the buffer size
-            // can be optionally specified to store audio samples.
-            // If the value is not specified,
-            // uses a single frame and lets the
-            // native code figure out the minimum buffer size.
             .setBufferSizeInBytes(BUFFER_SIZE_IN_BYTES)
             .setAudioPlaybackCaptureConfig(config)
             .build()
@@ -130,12 +134,6 @@ class AudioCaptureService : Service() {
 
         while (!audioCaptureThread.isInterrupted) {
             audioRecord?.read(capturedAudioSamples, 0, NUM_SAMPLES_PER_READ)
-
-            // This loop should be as fast as possible to avoid artifacts in the captured audio
-            // You can uncomment the following line to see the capture samples but
-            // that will incur a performance hit due to logging I/O.
-            // Log.v(LOG_TAG, "Audio samples captured: ${capturedAudioSamples.toList()}")
-
             fileOutputStream.write(
                 capturedAudioSamples.toByteArray(),
                 0,
@@ -173,11 +171,22 @@ class AudioCaptureService : Service() {
         wavFile.delete()
         if (rawFile == null) {
             Log.e(LOG_TAG, "No record found!")
+            Toast.makeText(
+                applicationContext,
+                getString(R.string.capturing_failure_snackbar).format(wavFile.name),
+                Toast.LENGTH_SHORT
+            ).show()
         } else {
             val exe = "-f s16le -ar 44100 -ac 1 -i $rawFile $wavFile"
             FFmpeg.execute(exe)
             rawFile?.deleteRecursively()
             Log.d(LOG_TAG, "File formatted to wav: $wavFile")
+
+            Toast.makeText(
+                applicationContext,
+                getString(R.string.capturing_success_snackbar).format(wavFile.name),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -193,6 +202,13 @@ class AudioCaptureService : Service() {
             this[i] = 0
         }
         return bytes
+    }
+
+    private fun checkPermissions(): Boolean {
+        return ActivityCompat.checkSelfPermission(
+            this,
+            Manifest.permission.RECORD_AUDIO
+        ) == PackageManager.PERMISSION_GRANTED
     }
 
     companion object {

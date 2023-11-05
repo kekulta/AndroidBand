@@ -26,6 +26,7 @@ class QuickSoundsManager(
     }
 
     fun setQuickSound(soundId: Int) {
+        if (soundId == -1) return
         val typeNum = when (soundsDataStore.getById(soundId).type) {
             SoundType.MELODY -> 0
             SoundType.DRUMS -> 1

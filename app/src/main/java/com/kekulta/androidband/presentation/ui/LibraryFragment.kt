@@ -11,12 +11,14 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.tabs.TabLayoutMediator
+import com.kekulta.androidband.App
+import com.kekulta.androidband.R
 import com.kekulta.androidband.databinding.FragmentLibraryBinding
 import com.kekulta.androidband.domain.audio.sounds.SoundType.DRUMS
 import com.kekulta.androidband.domain.audio.sounds.SoundType.MELODY
 import com.kekulta.androidband.domain.audio.sounds.SoundType.RECORD
 import com.kekulta.androidband.domain.viewmodels.LibraryFragmentViewModel
-import com.kekulta.androidband.formInput
+import com.kekulta.androidband.presentation.ui.dialogs.showInput
 import com.kekulta.androidband.presentation.ui.events.LibraryFragmentEvent
 import com.kekulta.androidband.presentation.ui.viewpager.LibraryPagerAdapter
 import kotlinx.coroutines.launch
@@ -82,11 +84,10 @@ class LibraryFragment : Fragment() {
     private fun bindPager() {
         binding.libraryPager.adapter = LibraryPagerAdapter(this)
         TabLayoutMediator(binding.libraryTabLayout, binding.libraryPager) { tab, position ->
-            //TODO text
             tab.text = when (viewModel.state.value[position].category) {
-                MELODY -> "Melodies"
-                DRUMS -> "Drums"
-                RECORD -> "Records"
+                MELODY -> getString(R.string.melody_category_name)
+                DRUMS -> getString(R.string.drums_category_name)
+                RECORD -> getString(R.string.records_category_name)
             }
         }.attach()
 
@@ -98,13 +99,13 @@ class LibraryFragment : Fragment() {
     }
 
     private fun getInput(inputId: Int, title: String, message: String) {
-        requireContext().formInput(title, message) { input ->
+        requireContext().showInput(title, message) { input ->
             viewModel.onInputResult(inputId, input)
         }
     }
 
     private fun shareFile(file: File) {
-        val uri = FileProvider.getUriForFile(requireContext(), "com.kekulta.audioprovider", file)
+        val uri = FileProvider.getUriForFile(requireContext(), App.AUDIO_PROVIDER_AUTHORITY, file)
 
         val shareIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND

@@ -7,23 +7,18 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.util.TypedValue
-import android.view.LayoutInflater
 import android.view.View
-import android.widget.EditText
 import android.widget.ImageButton
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
-import androidx.annotation.LayoutRes
 import androidx.annotation.StyleableRes
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.setMargins
 import androidx.recyclerview.widget.RecyclerView.LayoutParams
 import com.google.android.material.button.MaterialButtonToggleGroup
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.slider.Slider
 import com.google.android.material.snackbar.Snackbar
 import com.kekulta.androidband.domain.interfacestate.ButtonState
-import com.kekulta.androidband.presentation.framework.RationaleCallback
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -44,7 +39,7 @@ import java.util.Locale
 import kotlin.math.log
 import kotlin.math.pow
 
-fun getTimeStamp() = SimpleDateFormat("dd-MM-yyyy-hh-mm-ss", Locale.US).format(Date())
+fun getTimeStamp(): String = SimpleDateFormat("dd-MM-yyyy-hh-mm-ss", Locale.US).format(Date())
 
 
 fun ImageButton.bind(
@@ -58,73 +53,6 @@ fun ImageButton.bind(
             setImageResource(resActive)
         } else {
             setImageResource(resNormal)
-        }
-    }
-}
-
-fun Context.showHelpPage(title: String, @LayoutRes resId: Int) {
-    val helpPage = LayoutInflater.from(this).inflate(resId, null)
-    MaterialAlertDialogBuilder(this).apply {
-        setTitle(title)
-        setView(helpPage)
-        //TODO text
-        setPositiveButton("Ok") { dialog, _ ->
-            dialog.dismiss()
-        }
-        show()
-    }
-}
-
-fun Context.formInput(
-    title: String,
-    message: String,
-    acceptText: String = "Ok",
-    closeText: String? = "Cancel",
-    inputCallback: (String?) -> Unit
-) {
-    val editText = EditText(this)
-    MaterialAlertDialogBuilder(this).apply {
-        setTitle(title)
-        setView(editText)
-        setMessage(message)
-        if (closeText != null) {
-            setNeutralButton(closeText) { dialog, _ ->
-                inputCallback(null)
-                dialog.dismiss()
-            }
-        }
-        setPositiveButton(acceptText) { dialog, _ ->
-            inputCallback(editText.text?.toString())
-            dialog.dismiss()
-        }
-        show()
-    }
-}
-
-fun Context.formRationale(
-    title: String,
-    message: String,
-    acceptText: String = "I understand",
-    rejectText: String = "Decline",
-    closeText: String? = "Cancel",
-): RationaleCallback {
-    return { permissionRequest ->
-        MaterialAlertDialogBuilder(this).apply {
-            setTitle(title)
-            setMessage(message)
-            if (closeText != null) {
-                setNeutralButton(closeText) { dialog, _ ->
-                    dialog.dismiss()
-                }
-            }
-            setNegativeButton(rejectText) { dialog, _ ->
-                dialog.dismiss()
-            }
-            setPositiveButton(acceptText) { dialog, _ ->
-                permissionRequest()
-                dialog.dismiss()
-            }
-            show()
         }
     }
 }

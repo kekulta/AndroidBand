@@ -59,14 +59,17 @@ class SoundsDataStore(
     }
 
     fun updateSounds() {
+        // We do not want to finish this scope by ourselves, so start with unique key
+        launchScope(Random.nextInt()) {
+            updateSoundsSync()
+        }
+    }
+
+    suspend fun updateSoundsSync() {
         val loadedFiles = getLoadedFiles()
         val newFiles =
             filesManager.audiosDir.listFiles { file -> file.name !in loadedFiles }.toListOrEmpty()
-
-        // We do not want to finish this scope by ourselves, so start with unique key
-        launchScope(Random.nextInt()) {
-            addNewFiles(newFiles)
-        }
+        addNewFiles(newFiles)
     }
 
     fun getById(soundId: Int): Sound {

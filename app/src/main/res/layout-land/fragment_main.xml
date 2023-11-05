@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:contentDescription="@string/add_melody_sample"
+            android:contentDescription="@string/add_melody_sample_button"
             app:srcCompat="@drawable/baseline_music_note_24" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:contentDescription="@string/add_drums_sample"
+            android:contentDescription="@string/add_drums_sample_button"
             app:srcCompat="@drawable/baseline_drums" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:contentDescription="@string/add_recorded_sample"
+            android:contentDescription="@string/add_recorded_sample_button"
             app:srcCompat="@drawable/baseline_mic_24" />
 
         <FrameLayout
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_margin="16dp"
-                android:contentDescription="@string/open_samples_library"
+                android:contentDescription="@string/open_samples_library_button"
                 app:srcCompat="@drawable/baseline_library_music_24" />
         </FrameLayout>
 

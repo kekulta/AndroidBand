@@ -12,7 +12,7 @@ import com.kekulta.androidband.domain.audio.sequencer.SampleFrameMapper
 import com.kekulta.androidband.domain.audio.sequencer.SequencePlayer
 import com.kekulta.androidband.domain.audio.sequencer.SequenceRecorder
 import com.kekulta.androidband.domain.audio.sequencer.SequenceRenderer
-import com.kekulta.androidband.domain.audio.sounds.GetSoundsListUseCase
+import com.kekulta.androidband.domain.audio.sounds.GetSoundsCategoriesUseCase
 import com.kekulta.androidband.domain.audio.sounds.QuickSoundsManager
 import com.kekulta.androidband.domain.audio.visualizer.AudioVisualizer
 import com.kekulta.androidband.domain.audio.visualizer.VisualizerRepository
@@ -32,13 +32,14 @@ import org.koin.dsl.module
 
 val koinModule = module {
     single<AudioVisualizer> { AndroidVisualizer(get()) }
-    single { PersistenceManager(get(), get(), get()) }
+    single { PersistenceManager(get(), get(), get(), get(), get()) }
     single { AppDatabase.createDatabase(get()) }
     single { SamplesRepository(get(), get()) }
     single { QuickSoundsManager(get()) }
     single { SoundsDataStore(get(), get()) }
     single { get<AppDatabase>().getSoundDao() }
     single { get<AppDatabase>().getSamplesDao() }
+    single { get<AppDatabase>().getQuickSoundDao() }
     single { VisualizerRepository(get()) }
     single { SequenceRecorder() }
     single { SequencePlayer(get(), get()) }
@@ -55,7 +56,7 @@ val koinModule = module {
     factory { SampleFrameMapper() }
     factory { FilesManager(get()) }
     factory { ButtonsStateUseCase(get(), get(), get(), get(), get()) }
-    factory { GetSoundsListUseCase(get(), get()) }
+    factory { GetSoundsCategoriesUseCase(get(), get()) }
 }
 
 val viewModelModule = module {
@@ -87,7 +88,7 @@ val viewModelModule = module {
     viewModel {
         LibraryFragmentViewModel(
             sampleManager = get(),
-            getSoundsListUseCase = get(),
+            getSoundsCategoriesUseCase = get(),
             quickSoundsManager = get(),
             soundsDataStore = get(),
             resourceManager = get(),

@@ -1,0 +1,98 @@
+<resources>
+    <!--Screen titles-->
+    <string name="app_name">AndroidBand</string>
+    <string name="sounds_library_name">Библиотека Звуков</string>
+
+    <!--Content descriptions-->
+    <string name="add_melody_sample_button">Добавить сэмпл мелодии</string>
+    <string name="add_drums_sample_button">Добавить сэмпл ударных</string>
+    <string name="add_recorded_sample_button">Добавить записанный сэмпл</string>
+    <string name="open_samples_library_button">Открыть библиотеку звуков</string>
+    <string name="prev_mode_button">Кнопка "Предыдущий режим"</string>
+    <string name="next_mode_button">Кнопка "Следующий режим"</string>
+    <string name="return_to_samples_button">Вернуться к сэмплам</string>
+    <string name="start_mic_recording_button">Начать запись микрофона</string>
+    <string name="start_sound_capturing_button">Начать захват звука</string>
+    <string name="start_sequence_recording_button">Начать запись секвенсера</string>
+    <string name="play_previous_record_button">Проиграть предыдущую запись</string>
+    <string name="render_previous_record_button">Начать рендер предыдущий записи</string>
+    <string name="help_button">Кнопка "Помощь"</string>
+
+    <!--Sounds Categories-->
+    <string name="melody_category_name">Мелодии</string>
+    <string name="drums_category_name">Ударные</string>
+    <string name="records_category_name">Записи</string>
+
+    <!--Progresses-->
+    <!--Rendering Progress-->
+    <string name="rendering_progress_title">Рендеринг…</string>
+    <string name="rendering_success_snackbar">Ошибка во время рендера аудио!</string>
+    <string name="rendering_failure_snackbar">Ваша запись сохранена как %s</string>
+    <!--Capturing Progress-->
+    <string name="capturing_success_snackbar">Ошибка во время захвата аудио!!</string>
+    <string name="capturing_failure_snackbar">Ваше аудио сохранено как %s</string>
+    <!--Mic Recording Progress-->
+    <string name="mic_recording_success_snackbar">Ваша запись сохранена %s</string>
+
+    <!--Inputs-->
+    <!--Default Inputs-->
+    <string name="default_input_accept">ОК</string>
+    <string name="default_input_close">Отменить</string>
+    <!--Rename Input-->
+    <string name="rename_input_title">Переименовать в…</string>
+
+    <!--Help Page-->
+    <!--Default Help Page-->
+    <string name="default_help_page_accept">ОК</string>
+    <!--Capturing Help Page-->
+    <string name="capturing_help_page_title">Режим захвата звука</string>
+    <string name="capturing_help_text_1">Добро пожаловать в режим захвата звука. Этот режим позволяет записывать треки, захватывая все звуки с телефона.</string>
+    <string name="capturing_help_text_2">Записи будут сохранены в вашей библиотеке с префиксом "Captured-", откуда вы сможете их воспроизвести, переименовать, поделиться, добавить на панель быстрого доступа или удалить его по своему усмотрению.</string>
+    <string name="capturing_help_text_3">Обратите внимание, что для запуска этого режима требуется дополнительное разрешение на захват экрана!</string>
+    <string name="capturing_help_start_stop_buttons_desc">Кнопка начала/остановки записи.</string>
+    <string name="capturing_help_next_button_desc">Кнопка "Следующий режим"</string>
+    <string name="capturing_help_text_end">Для перехода в режим записи микрофона можно нажать кнопку "Следующий режим" или провести пальцем влево по нижней панели.</string>
+    <!--Mic recording Help Page-->
+    <string name="mic_recording_help_page_title">Режим записи с микрофона</string>
+    <string name="mic_recording_help_text_1">Добро пожаловать в режим записи с микрофона. В этом режиме вы можете записывать свой голос или живые инструменты, используя микрофон вашего телефона.</string>
+    <string name="mic_recording_help_text_2">Записи будут сохранены в вашей библиотеке с префиксом "MicRecorded-", откуда вы сможете их воспроизвести, переименовать, поделиться, добавить на панель быстрого доступа или удалить его по своему усмотрению.</string>
+    <string name="mic_recording_help_text_3">Обратите внимание, что этот режим требует базового разрешения на запись звука и не будет работать во время захвата экрана!</string>
+    <string name="mic_recording_help_start_stop_desc">Кнопка начала/остановки записи.</string>
+    <string name="mic_recording_help_prev_next_desc">Кнопки "Предыдущий/Следующий режим"</string>
+    <string name="mic_recording_help_text_end_1">Для перехода в режим секвенсера нажмите кнопку "Следующий режим" или проведите пальцем влево на нижней панели.</string>
+    <string name="mic_recording_help_text_end_2">Для возврата в режим захвата звука нажмите кнопку "Предыдущий режим" или проведите пальцем вправо на нижней панели.</string>
+    <!--Recording Help Page-->
+    <string name="recording_help_page_title">Режим секвенсера</string>
+    <string name="recording_help_text_1">Добро пожаловать в режим секвенсора. В этом режиме AndroidBand будет отслеживать ваши действия с семплами и позволит воспроизвести их или объединить в один файл.</string>
+    <string name="recording_help_text_2">После записи вы можете нажать кнопку "Render", чтобы объединить ваши действия в один файл. Этот файл с префиксом "Rendered-" будет добавлен в вашу библиотеку, где вы сможете воспроизвести, переименовать, поделиться, добавить на панель быстрого доступа или удалить его по своему усмотрению.</string>
+    <string name="recording_help_text_3">Этот режим не требует дополнительных разрешений, однако следует иметь в виду, что изменение скорости или громкости сэмпла, а также добавление новых сэмплов во время записи невозможно!</string>
+    <string name="recording_help_start_stop_recording_desc">Кнопка начала/остановки записи.</string>
+    <string name="recording_help_start_stop_playing_desc">Кнопка запуска/остановки воспроизведения.</string>
+    <string name="recording_help_render_desc">Кнопка "Рендеринг".</string>
+    <string name="recording_help_prev_desc">Кнопка "Предыдущий режим."</string>
+    <string name="recording_help_text_end">Для возврата в режим записи микрофона нажмите кнопку "Предыдущий режим" или проведите пальцем вправо на нижней панели.</string>
+
+    <!--Rationale-->
+    <!--Default rationale-->
+    <string name="default_rationale_accept">Я понимаю</string>
+    <string name="default_rationale_reject">Отказаться</string>
+    <string name="default_rationale_close">Отменить</string>
+    <!--Capturing rationale-->
+    <string name="capturing_record_audio_permissions_denied">Отказано в разрешении на захват аудио.</string>
+    <string name="capturing_media_projection_obtained">Разрешения получены. Начинаем захват аудио!</string>
+    <string name="capturing_media_projection_denied">Запрос на начало записи отклонен! Без этого мы не можем захватывать звук.</string>
+    <string name="capturing_rationale_title">Мы заботимся о вашей конфеденциальности</string>
+    <string name="capturing_rationale_text">Мы глубоко уважаем вашу конфиденциальность и заверяем вас, что никогда не будем вести запись без вашего явного согласия. Тем не менее, для обеспечения функциональности захвата звуковых дорожек нам требуется ваше разрешение на запись звука и запись экрана.</string>
+    <!--Mic Recording rationale-->
+    <string name="mic_recording_rationale_title">Мы заботимся о вашей конфеденциальности</string>
+    <string name="mic_recording_rationale_text">Мы высоко ценим вашу конфиденциальность и никогда не будем записывать вас без вашего прямого согласия. Однако для обеспечения записи в реальном времени нам требуется ваше разрешение на аудиозапись.</string>
+    <!--Visualizer rationale-->
+    <string name="visualizer_rationale_title">Мы заботимся о вашей конфеденциальности</string>
+    <string name="visualizer_rationale_text">Мы с большим уважением относимся к вашей конфеденциальности и никогда не будем записывать звук без вашего явного согласия. Однако для правильной работы визуализатора требуется разрешение на запись звука. Если вы откажетесь, визуализатор может работать неккоректно, но остальные части приложения останутся работоспособными. Вы можете предоставить это разрешение позднее, но при этом следует учитывать, что для корректной работы визуализатора необходимо будет перезапустить приложение.</string>
+
+    <!--Menu's options-->
+    <string name="select_for_quick_sound_option">Добавить на панель быстрого доступа</string>
+    <string name="share_option">Поделиться</string>
+    <string name="rename_option">Переименовать</string>
+    <string name="delete_option">Удалить</string>
+</resources>

@@ -5,8 +5,7 @@
 
     android:overScrollMode="ifContentScrolls">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp">
@@ -15,7 +14,7 @@
             android:id="@+id/introduction_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="You're in mic recording mode. In this mode you can record your voice or live instruments with your phone's mic."
+            android:text="@string/mic_recording_help_text_1"
             android:textColor="?colorOnSurfaceVariant"
 
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Your record will be added to your lib with prefix 'MicRecorded-', you can play it from there later or rename it."
+            android:text="@string/mic_recording_help_text_2"
             android:textColor="?colorOnSurfaceVariant"
             app:layout_constraintStart_toStartOf="@id/introduction_1"
             app:layout_constraintTop_toBottomOf="@id/introduction_1" />
@@ -37,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="This mode requires basic permission to record audio and it won't work while you're capturing your screen!"
+            android:text="@string/mic_recording_help_text_3"
             android:textColor="?colorOnSurfaceVariant"
 
             app:layout_constraintStart_toStartOf="@id/introduction_2"
@@ -48,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Start/Stop recording button."
+            android:text="@string/mic_recording_help_start_stop_desc"
             android:textColor="?colorOnSurfaceVariant"
             app:layout_constraintBottom_toBottomOf="@id/start_recording_example_button"
             app:layout_constraintStart_toEndOf="@id/stop_recording_example_button"
@@ -59,7 +58,7 @@
             android:id="@+id/next_mode_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Prev/Next mode buttons"
+            android:text="@string/mic_recording_help_prev_next_desc"
             android:textColor="?colorOnSurfaceVariant"
             app:layout_constraintBottom_toBottomOf="@id/prev_mode_example_button"
             app:layout_constraintStart_toStartOf="@id/recording_text"
@@ -73,7 +72,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:contentDescription="@string/start_sound_capturing"
+            android:contentDescription="@string/start_sound_capturing_button"
             app:layout_constraintStart_toStartOf="@+id/introduction_3"
             app:layout_constraintTop_toBottomOf="@id/introduction_3"
             app:srcCompat="@drawable/baseline_fiber_manual_record_24" />
@@ -86,7 +85,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:contentDescription="@string/start_sound_capturing"
+            android:contentDescription="@string/start_sound_capturing_button"
             app:layout_constraintStart_toEndOf="@+id/start_recording_example_button"
             app:layout_constraintTop_toBottomOf="@id/introduction_3"
             app:srcCompat="@drawable/baseline_stop_24" />
@@ -97,7 +96,7 @@
             android:layout_height="24dp"
             android:layout_margin="16dp"
             android:background="@color/transparent"
-            android:contentDescription="@string/arrow_to_right"
+            android:contentDescription="@string/next_mode_button"
             android:src="@drawable/baseline_keyboard_arrow_right_24"
             app:layout_constraintEnd_toEndOf="@+id/stop_recording_example_button"
             app:layout_constraintStart_toStartOf="@+id/stop_recording_example_button"
@@ -110,7 +109,7 @@
             android:layout_height="24dp"
             android:layout_margin="16dp"
             android:background="@color/transparent"
-            android:contentDescription="@string/arrow_to_left"
+            android:contentDescription="@string/prev_mode_button"
             android:src="@drawable/baseline_keyboard_arrow_left_24"
             app:layout_constraintEnd_toEndOf="@+id/start_recording_example_button"
             app:layout_constraintStart_toStartOf="@+id/start_recording_example_button"
@@ -122,7 +121,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Press 'Next mode button' or swipe left on the bottom panel to enter sequencer recording mode."
+            android:text="@string/mic_recording_help_text_end_1"
             android:textColor="?colorOnSurfaceVariant"
             app:layout_constraintStart_toStartOf="@+id/start_recording_example_button"
             app:layout_constraintTop_toBottomOf="@id/prev_mode_example_button" />
@@ -132,7 +131,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Press 'Prev mode button' or swipe right on the bottom panel to return to capturing mode."
+            android:text="@string/mic_recording_help_text_end_2"
             android:textColor="?colorOnSurfaceVariant"
             app:layout_constraintStart_toStartOf="@+id/start_recording_example_button"
             app:layout_constraintTop_toBottomOf="@id/end_text_1" />

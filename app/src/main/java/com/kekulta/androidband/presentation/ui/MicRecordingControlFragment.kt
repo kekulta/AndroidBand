@@ -10,9 +10,9 @@ import com.kekulta.androidband.R
 import com.kekulta.androidband.bind
 import com.kekulta.androidband.databinding.FragmentMicRecordingBinding
 import com.kekulta.androidband.domain.viewmodels.MainFragmentViewModel
-import com.kekulta.androidband.formRationale
+import com.kekulta.androidband.presentation.ui.dialogs.formRationale
+import com.kekulta.androidband.presentation.ui.dialogs.showHelpPage
 import com.kekulta.androidband.presentation.ui.events.ControlType
-import com.kekulta.androidband.showHelpPage
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
@@ -49,10 +49,9 @@ class MicRecordingControlFragment : Fragment() {
 
         binding.micRecordingButton.setOnClickListener {
             if (!viewModel.isMicRecording()) {
-                //TODO text
                 val micRecordingRationale = requireContext().formRationale(
-                    title = "We care about privacy",
-                    message = "We do not record you without your consent but for audio capturing your track we need recording permission and screencast permission.",
+                    title = getString(R.string.mic_recording_rationale_title),
+                    message = getString(R.string.mic_recording_rationale_text),
                 )
 
                 viewModel.startMicRecording(micRecordingRationale)
@@ -69,9 +68,11 @@ class MicRecordingControlFragment : Fragment() {
             viewModel.goToControl(ControlType.RECORDING)
         }
 
-        // TODO text
         binding.helpButton.setOnClickListener {
-            requireContext().showHelpPage("Mic recording mode", R.layout.mic_recording_help_page)
+            requireContext().showHelpPage(
+                getString(R.string.mic_recording_help_page_title),
+                R.layout.mic_recording_help_page
+            )
         }
     }
 

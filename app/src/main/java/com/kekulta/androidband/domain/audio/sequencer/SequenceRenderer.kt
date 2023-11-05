@@ -13,7 +13,7 @@ class SequenceRenderer(
     private val assetManager: AssetManager,
 ) {
 
-    fun render(sequenceFrames: List<SequenceFrame>, name: String): File {
+    fun render(sequenceFrames: List<SequenceFrame>, name: String): File? {
         val groups = sequenceFrames.groupBy { it.soundId to it.speed }
         val unpackedAssets = groups.keys.associateWith { (soundId, _) ->
             unpackAsset(soundId)
@@ -62,10 +62,14 @@ class SequenceRenderer(
             delays.add(sample.delay)
         }
 
-        val output = merge(assets, delays, name)
+        val result = try {
+            merge(assets, delays, name)
+        } catch (e: java.lang.IllegalArgumentException) {
+            null
+        }
 
         cleanCache()
-        return output
+        return result
     }
 
     private fun changeSpeed(asset: File, speed: Double, name: String): File {

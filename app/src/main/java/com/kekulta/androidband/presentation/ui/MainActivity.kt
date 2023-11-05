@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == MEDIA_PROJECTION_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                binding.root.snackbar("MediaProjection permission obtained. Foreground service will be started to capture audio.")
+                binding.root.snackbar(getString(R.string.capturing_media_projection_obtained))
 
                 val audioCaptureIntent = Intent(this, AudioCaptureService::class.java).apply {
                     action = AudioCaptureService.ACTION_START
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                 startForegroundService(audioCaptureIntent)
 
             } else {
-                binding.root.snackbar("Request to obtain MediaProjection denied.")
+                binding.root.snackbar(getString(R.string.capturing_media_projection_denied))
             }
         }
     }

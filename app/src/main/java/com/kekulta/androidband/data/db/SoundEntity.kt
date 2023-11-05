@@ -9,11 +9,8 @@ import com.kekulta.androidband.data.db.SoundEntity.Companion.TABLE_NAME
     tableName = TABLE_NAME
 )
 data class SoundEntity(
-    @PrimaryKey
-    @ColumnInfo(name = FILE_NAME)
-    val fileName: String,
-    @ColumnInfo(name = SOUND_ID)
-    val soundId: Int,
+    @PrimaryKey @ColumnInfo(name = FILE_NAME) val fileName: String,
+    @ColumnInfo(name = SOUND_ID) val soundId: Int,
 ) {
     companion object {
         const val TABLE_NAME = "SOUND_TABLE"

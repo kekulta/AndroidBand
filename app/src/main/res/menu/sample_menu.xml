@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/rename_option"
-        android:title="Rename" />
+        android:title="@string/rename_option" />
     <item
         android:id="@+id/delete_option"
-        android:title="Delete" />
+        android:title="@string/delete_option" />
 </menu>

@@ -65,7 +65,7 @@ class MainFragmentViewModel(
 
     private var isJustLaunched = true
 
-    fun renderRecord(): File {
+    fun renderRecord(): File? {
         val frames = sampleFrameMapper.map(recorder.getRecord())
         return sequenceRenderer.render(sequenceFrames = frames, name = "Rendered-${getTimeStamp()}")
     }
@@ -217,7 +217,7 @@ class MainFragmentViewModel(
             _eventChannel.send(
                 MainFragmentEvent.Input(
                     inputId = inputId,
-                    title = resourceManager.getString(R.string.rename_to),
+                    title = resourceManager.getString(R.string.rename_input_title),
                     message = ""
                 )
             )
