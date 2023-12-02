@@ -47,6 +47,10 @@ dependencies {
     ksp("androidx.room:room-compiler:2.6.0")
     implementation("androidx.room:room-ktx:2.6.0")
 
+    /**
+     * LinearLayout that wrapping its children
+     */
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
 
     /**
      * ViewPager2 is a google's lib for easy for swipeviews

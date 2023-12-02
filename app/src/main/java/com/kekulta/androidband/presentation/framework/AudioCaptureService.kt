@@ -196,7 +196,7 @@ class AudioCaptureService : Service() {
         // Samples get translated into bytes following little-endianness:
         // least significant byte first and the most significant byte last
         val bytes = ByteArray(size * 2)
-        for (i in 0 until size) {
+        for (i in indices) {
             bytes[i * 2] = (this[i] and 0x00FF).toByte()
             bytes[i * 2 + 1] = (this[i].toInt() shr 8).toByte()
             this[i] = 0

@@ -8,8 +8,8 @@ class AndroidVisualizer(private val audioSessionId: AudioSessionId) : AudioVisua
 
     override fun init() {
         visualizer = Visualizer(audioSessionId.sessionId).apply {
-            captureSize = Visualizer.getCaptureSizeRange()
-                .firstOrNull { it >= 128 } ?: Visualizer.getCaptureSizeRange().max()
+            captureSize = Visualizer.getCaptureSizeRange().firstOrNull { it >= 128 }
+                ?: Visualizer.getCaptureSizeRange().max()
             enabled = true
         }
     }
@@ -19,5 +19,12 @@ class AndroidVisualizer(private val audioSessionId: AudioSessionId) : AudioVisua
 
         visualizer?.getWaveForm(arr)
         return arr.toList().sumOf { it.toInt() } / 128 + 128
+    }
+
+    override fun getWaveFormArr(): List<Int> {
+        val arr = ByteArray(128)
+
+        visualizer?.getWaveForm(arr)
+        return arr.map { it.toInt() }
     }
 }

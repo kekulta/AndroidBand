@@ -12,7 +12,7 @@ abstract class CoroutineViewModel : ViewModel() {
     private val holder = mutableMapOf<Any, Job>()
 
     fun launchScope(
-        scopeId: Any,
+        scopeId: Any = this,
         dispatcher: CoroutineDispatcher = Dispatchers.IO,
         block: suspend CoroutineScope.() -> Unit
     ) {

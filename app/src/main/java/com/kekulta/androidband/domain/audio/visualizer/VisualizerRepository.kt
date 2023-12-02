@@ -15,6 +15,10 @@ class VisualizerRepository(
     private val _wavesState = MutableStateFlow(_waves.toList())
     val wavesState: StateFlow<List<WaveUnitVo>> get() = _wavesState
 
+    private val _wavesArr = MutableStateFlow<List<Int>>(emptyList())
+
+    val wavesArr: StateFlow<List<Int>> get() = _wavesArr
+
 
     fun clearWave() {
         _waves.clear()
@@ -48,6 +52,7 @@ class VisualizerRepository(
 
     private fun updateState() {
         _wavesState.value = _waves.toList()
+        _wavesArr.value = visualizer.getWaveFormArr().map { it + 128 }
     }
 
     fun init() {

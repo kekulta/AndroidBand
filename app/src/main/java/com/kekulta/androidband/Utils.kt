@@ -14,6 +14,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StyleableRes
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.setMargins
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView.LayoutParams
 import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.slider.Slider
@@ -152,6 +153,10 @@ fun Context.dp(dp: Number): Float {
 
 fun View.dp(dp: Number): Float {
     return context.dp(dp)
+}
+
+fun Fragment.dp(dp: Number): Float {
+    return requireContext().dp(dp)
 }
 
 fun View.setHeightDp(dp: Number) {

@@ -15,6 +15,7 @@ import com.kekulta.androidband.domain.audio.sounds.QuickSoundsManager
 import com.kekulta.androidband.domain.audio.visualizer.VisualizerRepository
 import com.kekulta.androidband.domain.interfacestate.ButtonsStateUseCase
 import com.kekulta.androidband.domain.interfacestate.InterfaceState
+import com.kekulta.androidband.cupfinal.VIS_PERIOD_MILLIS
 import com.kekulta.androidband.getTimeStamp
 import com.kekulta.androidband.presentation.framework.MicRecordingRepository
 import com.kekulta.androidband.presentation.framework.PermissionManager
@@ -86,7 +87,7 @@ class MainFragmentViewModel(
         launchScope(WAVE_SCOPE) {
             while (isActive) {
                 visualizerRepository.emitWave()
-                delay(200)
+                delay(VIS_PERIOD_MILLIS)
             }
         }
     }

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical">
+
+
+    <com.kekulta.androidband.cupfinal.VisualizerView
+        android:id="@+id/lines_one"
+        android:layout_width="218dp"
+        android:layout_height="100dp"
+        android:rotation="-40"
+        android:scaleType="fitXY"
+        android:src="@drawable/lines_one"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.922"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/top_bar"
+        app:layout_constraintVertical_bias="0.378" />
+
+    <com.kekulta.androidband.cupfinal.VisualizerView
+        android:id="@+id/ellipse_one"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ellipse_one"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.765"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/top_bar"
+        app:layout_constraintVertical_bias="0.221" />
+
+    <com.kekulta.androidband.cupfinal.VisualizerView
+        android:id="@+id/star_one"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/star_one"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/top_bar"
+        app:layout_constraintVertical_bias="0.298" />
+
+
+    <com.kekulta.androidband.cupfinal.VisualizerView
+        android:id="@+id/star_two"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/star_one"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/top_bar"
+        app:layout_constraintVertical_bias="0.167" />
+
+    <com.kekulta.androidband.cupfinal.VisualizerView
+        android:id="@+id/star_three"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/star_one"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.617"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/top_bar"
+        app:layout_constraintVertical_bias="0.099" />
+
+    <com.kekulta.androidband.cupfinal.VisualizerView
+        android:id="@+id/spiral_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/spiral_one"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/top_bar"
+        app:layout_constraintVertical_bias="0.81" />
+
+    <com.kekulta.androidband.cupfinal.VisualizerView
+        android:id="@+id/prism_one"
+        android:layout_width="191dp"
+        android:layout_height="243dp"
+        android:src="@drawable/prism_one"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.809"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/top_bar"
+        app:layout_constraintVertical_bias="0.834" />
+
+    <LinearLayout
+        android:id="@+id/top_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:alignItems="center"
+        app:flexWrap="wrap"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/back_button"
+            style="?attr/materialIconButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center"
+            android:contentDescription="@string/return_to_samples_button"
+            android:drawableEnd="@drawable/baseline_keyboard_arrow_left_24"
+            android:drawableTint="?colorOnBackground" />
+
+        <TextView
+            android:id="@+id/sample_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/title_background"
+            android:backgroundTint="?colorSurfaceContainer"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
+            android:textColor="?colorOnSurface"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/pause_button"
+        style="?attr/floatingActionButtonSmallSecondaryStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/play_previous_record_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/baseline_pause_circle_24" />
+</androidx.constraintlayout.widget.ConstraintLayout>

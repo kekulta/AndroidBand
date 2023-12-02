@@ -1,5 +1,6 @@
 package com.kekulta.androidband.di
 
+import com.kekulta.androidband.cupfinal.VisViewModel
 import com.kekulta.androidband.data.PersistenceManager
 import com.kekulta.androidband.data.SoundsDataStore
 import com.kekulta.androidband.data.db.AppDatabase
@@ -93,5 +94,9 @@ val viewModelModule = module {
             soundsDataStore = get(),
             resourceManager = get(),
         )
+    }
+
+    viewModel {
+        VisViewModel(get(), get())
     }
 }

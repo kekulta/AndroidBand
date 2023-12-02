@@ -12,6 +12,7 @@ import com.kekulta.androidband.R
 import com.kekulta.androidband.bind
 import com.kekulta.androidband.databinding.FragmentMainBinding
 import com.kekulta.androidband.domain.viewmodels.MainFragmentViewModel
+import com.kekulta.androidband.cupfinal.VisFragment
 import com.kekulta.androidband.presentation.ui.dialogs.formRationale
 import com.kekulta.androidband.presentation.ui.dialogs.showInput
 import com.kekulta.androidband.presentation.ui.events.MainFragmentEvent
@@ -64,9 +65,7 @@ class MainFragment : Fragment() {
             viewModel.eventChannel.collect { event ->
                 when (event) {
                     is MainFragmentEvent.Input -> getInput(
-                        event.inputId,
-                        event.title,
-                        event.message
+                        event.inputId, event.title, event.message
                     )
                 }
             }
@@ -118,6 +117,22 @@ class MainFragment : Fragment() {
         binding.sampleThree.setOnLongClickListener { navigateToLib(2); true }
         binding.sampleFour.setOnLongClickListener { navigateToLib(3); true }
         binding.libraryButton.setOnClickListener { navigateToLib() }
+        //TODO LAND!!!!
+        binding.visButton!!.setOnClickListener { navigateToVis() }
+
+    }
+
+    private fun navigateToVis() {
+        parentFragmentManager.commit {
+            addToBackStack(null)
+            setCustomAnimations(
+                R.anim.slide_in_right,
+                R.anim.slide_out_left,
+                R.anim.slide_in_left,
+                R.anim.slide_out_right
+            )
+            replace(R.id.root_container, VisFragment())
+        }
     }
 
     private fun navigateToLib(categoryNum: Int? = null) {
